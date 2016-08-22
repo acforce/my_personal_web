@@ -1,0 +1,14 @@
+#avatar {
+	width: 150px;
+	height: 150px;
+}
+
+.paging {
+	width: 400px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.right-panel {
+	width: 300px;
+}

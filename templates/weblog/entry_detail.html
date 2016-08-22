@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block qb-main-col %}
+    <div class="blog-post">
+        <h2 class="blog-post-title">{{ object.title }}</h2>
+        <p>{{ object.pub_time }}</p>
+
+        {{ object.content|safe }}
+
+	{% if object.get_tag_list %}
+	<div>
+	Tags:
+        {% for tag in object.get_tag_list %}
+            <span>{{ tag }}</span>
+        {% endfor %}
+	</div>
+	{% endif %}
+
+	{% if object.get_category_list %}
+	<div>
+	Categories:
+	{% for category in object.get_category_list %}
+	    <span>{{ category }}</span>
+	{% endfor %}
+	</div>
+	{% endif %}
+    </div>
+{% endblock %}
+
+
