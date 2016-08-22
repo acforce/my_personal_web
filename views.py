@@ -1,4 +1,5 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from django.http import HttpResponse
 
 from .models import Blog, Author, Entry
@@ -14,3 +15,7 @@ def index(request):
 def article(request, year, month, day, slug):
     return HttpResponse(slug)
 
+=======
+
+# Create your views here.
+>>>>>>> bf50107ea9289371f0c23b17355ca7316f414783
