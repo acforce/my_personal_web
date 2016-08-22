@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-<<<<<<< HEAD
+
 from django.core.urlresolvers import reverse
 
 # Create your models here.
@@ -71,7 +71,7 @@ class Article(models.Model):
     def get_absolute_url(self):
         return reverse('article-detail', kwargs={'pk': self.pk})
 
-=======
+
 
 # Create your models here.
->>>>>>> bf50107ea9289371f0c23b17355ca7316f414783
+
