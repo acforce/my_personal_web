@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+	
+    <link rel="icon" href="{% static 'weblog/images/icon.png' %}" />
+    <link href="{% static 'weblog/css/blog.css' %}" rel="stylesheet" />
+    <link href="{% static 'weblog/css/site.css' %}" rel="stylesheet" />
+    <link href="{% static 'weblog/css/calendar.css' %}" rel="stylesheet" />
+    <link href="{% static 'weblog/css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'weblog/css/hl.min.css' %}" rel="stylesheet" />
+
+    <title>{% block title %}Qinbo Li's blog{% endblock %}</title>
+  </head>
+
+  <body>
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item" href="http://qinboli.com">Home</a>
+          <a class="blog-nav-item" href="#">Projects</a>
+          <a class="blog-nav-item active" href="http://qinboli.com/blog/">Blog</a>
+          <a class="blog-nav-item" href="#">About</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container">
+	  <div class="blog-header">
+        <h1 class="blog-title"></h1>
+        <p class="lead blog-description"></p>
+      </div>
+	  
+      <div class="row">
+        <div class="col-sm-8 blog-main">
+			{% block qb-main-col %}
+				<!-- to be filled -->
+			{% endblock %}
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module">
+            <div class="panel panel-default right-panel">
+				<div class="panel-heading">About</div>
+				<div class="panel-body">
+					Welcome to Qinbo Li's blog.<br/>
+					This blog is built upon <a href="https://www.djangoproject.com/" target="_blank">Django</a>.<br/>
+					This site is hosted on <a href="https://aws.amazon.com/" target="_blank">AWS</a>.
+				</div>
+			</div>
+			
+			<div class="panel panel-default right-panel">
+				<div class="panel-heading">Tags</div>
+				<div class="panel-body" id="tags">
+					{% block tags %}
+					{% endblock %}
+				</div>
+			</div>
+			
+			<div class="panel panel-default right-panel">
+				<div class="panel-heading">Categories</div>
+				{% block categories %}
+				{% endblock %}
+			</div>
+			
+			<div class="panel panel-default right-panel">
+				<div class="panel-heading">Calendar</div>
+				<div id="my-calendar"></div>
+			</div>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Copyright 2016 | Qinbo Li | All Rights Reserved<br/>This site is hosted on <a href="https://aws.amazon.com/" target="_blank">AWS</a>
+	  </p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{% static 'weblog/javascript/bootstrap.min.js' %}"></script>
+    <script src="{% static 'weblog/javascript/calendar.js' %}"></script>
+    <script src="{% static 'weblog/javascript/highlight.min.js' %}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

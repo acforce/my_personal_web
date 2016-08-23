@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "entry_base.html" %}
 
 {% block title %}{{ object.title }}{% endblock %}
 
@@ -8,25 +8,21 @@
         <p>{{ object.pub_time }}</p>
 
         {{ object.content|safe }}
-
-	{% if object.get_tag_list %}
-	<div>
-	Tags:
-        {% for tag in object.get_tag_list %}
-            <span>{{ tag }}</span>
-        {% endfor %}
-	</div>
-	{% endif %}
-
-	{% if object.get_category_list %}
-	<div>
-	Categories:
-	{% for category in object.get_category_list %}
-	    <span>{{ category }}</span>
-	{% endfor %}
-	</div>
-	{% endif %}
     </div>
+{% endblock %}
+
+{% block tags %}
+	{% for tag in object.get_tag_list %}
+        <a href="#"><span class="label label-info">{{ tag }}</span></a>
+    {% endfor %}
+{% endblock %}
+
+{% block categories %}
+	{% if object.get_category_list %}
+	{% for category in object.get_category_list %}
+		<li class="list-group-item"><a href="#">{{ category }}</a></li>
+	{% endfor %}
+	{% endif %}
 {% endblock %}
 
 

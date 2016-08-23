@@ -58,23 +58,21 @@
 			<div class="panel panel-default right-panel">
 				<div class="panel-heading">Tags</div>
 				<div class="panel-body" id="tags">
-					<a href="#"><span class="label label-info">Algorithm</span></a>
-					<a href="#"><span class="label label-info">Django</span></a>
-					<a href="#"><span class="label label-info">Web</span></a>
-					<a href="#"><span class="label label-info">Big data</span></a>
-					<a href="#"><span class="label label-info">Distribute system</span></a>
+					{% for tag in tags %}
+						<a href="#"><span class="label label-info">{{ tag }}</span></a>
+					{% endfor %}
 				</div>
 			</div>
 			
 			<div class="panel panel-default right-panel">
 				<div class="panel-heading">Categories</div>
+					{% if categories %}
 					<ul class="list-group">
-					   <li class="list-group-item"><a href="#">Algorithm</a></li>
-					   <li class="list-group-item"><a href="#">Artificial intelligence</a></li>
-					   <li class="list-group-item"><a href="#">Intelligent tutoring systems</a></li>
-					   <li class="list-group-item"><a href="#">Web development</a></li>
-					   <li class="list-group-item"><a href="#">Github</a></li>
+						{% for category in categories %}
+							<li class="list-group-item"><a href="#">{{ category }}</a></li>
+						{% endfor %}
 					</ul>
+					{% endif %}
 			</div>
 			
 			<div class="panel panel-default right-panel">
