@@ -11,8 +11,8 @@ def index(request):
 	
     context = {
         'latest_entries': latest_entries,
-	    'tags': tags,
-	    'categories': categories,
+        'tags': tags,
+        'categories': categories,
     }
     return render(request, 'weblog/home.html', context)
 
