@@ -28,7 +28,7 @@ class Tag(models.Model):
         return self.name
 
     def get_url(self):
-        return '/tag/' + self.name + '/'
+        return '/blog/tag/' + self.name + '/'
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -37,7 +37,7 @@ class Category(models.Model):
         return self.name
 
     def get_url(self):
-        return '/category/' + self.name + '/'
+        return '/blog/category/' + self.name + '/'
 
 class Entry(models.Model):
     blog = models.ForeignKey(Blog)
@@ -61,7 +61,7 @@ class Entry(models.Model):
         year = self.pub_date.isoformat()[0:4]
         month = self.pub_date.isoformat()[5:7]
         day = self.pub_date.isoformat()[8:10]
-        url = '/'+year+'/'+month+'/'+day+'/'+self.slug
+        url = '/blog/'+year+'/'+month+'/'+day+'/'+self.slug
         return url
 
     def get_tag_list(self):
