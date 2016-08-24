@@ -59,7 +59,7 @@
 				<div class="panel-heading">Tags</div>
 				<div class="panel-body" id="tags">
 					{% for tag in tags %}
-						<a href="#"><span class="label label-info">{{ tag }}</span></a>
+						<a href="{{ tag.get_url }}"><span class="label label-info">{{ tag }}</span></a>
 					{% endfor %}
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 					{% if categories %}
 					<ul class="list-group">
 						{% for category in categories %}
-							<li class="list-group-item"><a href="#">{{ category }}</a></li>
+							<li class="list-group-item"><a href="{{ category.get_url }}">{{ category }}</a></li>
 						{% endfor %}
 					</ul>
 					{% endif %}

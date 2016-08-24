@@ -6,8 +6,8 @@ from .models import *
 admin.site.register(Author)
 admin.site.register(Blog)
 admin.site.register(Entry)
-admin.site.register(Article)
-
+admin.site.register(Tag)
+admin.site.register(Category)
 
 # Register your models here.
 

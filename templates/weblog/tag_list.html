@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Qinbo's blog{% endblock %}
+
+{% block qb-main-col %}
+{% for entry in entries %}
+	<div class="blog-post">
+		<h2 class="blog-post-title">
+			<a href="{{ entry.get_url }}">{{ entry.title }}</a>
+		</h2>
+		<p>{{ entry.pub_time }}<p>
+		{{ entry.content|safe }}
+		<a href="{{ entry.get_url }}">continue reading</a>
+		<hr>
+	</div><!-- /.blog-post -->
+{% endfor %}
+	<div class="paging" id="paging">
+		<ul class="pagination">
+			<li class="disabled"><a>&lt;</a></li>
+			<li class="active"><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li class="disabled"><a>...</a></li>
+			<li><a href="#">10</a></li>
+			<li><a href="#">&gt;</a></li>
+		</ul>
+	</div>
+{% endblock %}
+
