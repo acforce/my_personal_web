@@ -27,11 +27,17 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+    def get_url(self):
+        return '/tag/' + self.name + '/'
+
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
+
+    def get_url(self):
+        return '/category/' + self.name + '/'
 
 class Entry(models.Model):
     blog = models.ForeignKey(Blog)
@@ -55,7 +61,7 @@ class Entry(models.Model):
         year = self.pub_date.isoformat()[0:4]
         month = self.pub_date.isoformat()[5:7]
         day = self.pub_date.isoformat()[8:10]
-        url = year+'/'+month+'/'+day+'/'+self.slug
+        url = '/'+year+'/'+month+'/'+day+'/'+self.slug
         return url
 
     def get_tag_list(self):
