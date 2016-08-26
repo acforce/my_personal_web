@@ -6,8 +6,9 @@
     <div class="blog-post">
         <h2 class="blog-post-title">{{ object.title }}</h2>
         <p>{{ object.pub_time }}</p>
-
-        {{ object.content|safe }}
+		<div id="blog-content" style="display:none;">
+			{{ object.content|safe }}
+		</div>
     </div>
 {% endblock %}
 

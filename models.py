@@ -44,6 +44,8 @@ class Entry(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
     content = models.TextField()
+    content_abstract = models.TextField()
+    content_markdown = models.TextField()
     pub_date = models.DateField()
     pub_time = models.DateTimeField(auto_now_add=True)
     mod_time = models.DateTimeField()
@@ -70,14 +72,4 @@ class Entry(models.Model):
     def get_category_list(self):
         return self.categories.all()
 
-class Article(models.Model):
-    title = models.CharField(max_length=200)
-    pub_date = models.DateField()
-
-    def get_absolute_url(self):
-        return reverse('article-detail', kwargs={'pk': self.pk})
-
-
-
-# Create your models here.
 
