@@ -20,7 +20,7 @@ def article(request, year, month, day, slug):
     return HttpResponse(slug)
 
 def get_entries_by_tag(request, tag_name):
-    entries = Entry.objects.filter(tags__name=tag_name)
+    entries = Entry.objects.filter(tags__name=tag_name).order_by('-pub_time')[0:10]
     tags = Tag.objects.filter(name=tag_name);
     categories = Category.objects.all();
     context = {
@@ -31,7 +31,7 @@ def get_entries_by_tag(request, tag_name):
     return render(request, 'weblog/tag_list.html', context)
 
 def get_entries_by_category(request, category_name):
-    entries = Entry.objects.filter(categories__name=category_name)
+    entries = Entry.objects.filter(categories__name=category_name).order_by('-pub_time')[0:10]
     tags = Tag.objects.all();
     categories = Category.objects.filter(name=category_name);
     context = {
